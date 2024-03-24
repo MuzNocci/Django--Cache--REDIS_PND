@@ -8,8 +8,7 @@ from users.models import Users
 
 
 
-
-# @cache_page(30) # Guarda a página toda em cache
+# @cache_page(30)  # Stores the cache for the entire page.
 def users(request):
 
 
@@ -26,7 +25,9 @@ def users(request):
 
 def cache_clear_users(request):
 
+
     cache.delete(make_template_fragment_key('users'))
+
 
     return redirect('users')
 
@@ -34,6 +35,8 @@ def cache_clear_users(request):
 
 def cache_clear(request):
 
+
     cache.clear()
+
 
     return redirect('users')
