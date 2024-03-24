@@ -1,0 +1,20 @@
+{% load cache %}
+
+{% cache 300 title %}<h1>Hello World: {{ x }}</h1>{% endcache %}
+<h1>Hello World without CACHE: {{ x }}</h1>
+
+
+{% cache 300 users %}
+    <hr>
+    {% for user in users %}
+
+        <p>Nome: {{ user.name }}</p>
+        <p>E-mail: {{ user.mail }}</p>
+        <hr>
+
+    {% endfor %}
+{% endcache %}
+
+<br>
+<p><a href="{% url 'cache_clear_users' %}">Clear users cache >></a></p>
+<p><a href="{% url 'cache_clear' %}">Clear all cache >></a></p>
